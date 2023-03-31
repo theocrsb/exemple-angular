@@ -1,0 +1,3 @@
+<app-template-container *ngIf="client$ | async as client" title="Edit Client">
+    <app-form-client [init]="client" (submitCustom)="onSubmitEditClient($event)"></app-form-client>
+</app-template-container>

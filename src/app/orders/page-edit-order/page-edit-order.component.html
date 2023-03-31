@@ -1,0 +1,7 @@
+<app-template-container title="Edit Order">
+    <app-form-order 
+        *ngIf="order$ | async as order"
+        [init]="order"
+        (submitCustom)="onSubmitUpdateOrder($event)"
+        ></app-form-order>
+</app-template-container>

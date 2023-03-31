@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+Comment importer _fonts.scss ? 
+Comment importer _theme.scss ? 
+*/
+@import "~bootstrap/scss/bootstrap";
+@import "./stylings/fonts";
+@import "./stylings/theme";
+
+html, body {
+    height: 100%;
+}

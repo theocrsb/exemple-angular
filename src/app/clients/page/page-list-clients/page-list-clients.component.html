@@ -1,0 +1,25 @@
+<app-template-full-width *ngIf="collection$ | async as collection" title="List Client">
+    <app-table-light [headers]="headers">
+        <tr *ngFor="let item of collection">
+            <td>
+                <app-icon-edit (click)="onClickGoEdit(item.id)" ></app-icon-edit>
+            </td>
+            <td>
+                <app-icon-delete (click)="onClickDelete(item.id)" ></app-icon-delete>
+            </td>
+            <td> {{ item.name }} </td>
+            <td> {{ item.totalCaHt | currency}} </td>
+            <td> {{ item.tauxTva }}% </td>
+            <td> {{ item | total : true | currency}} </td>
+            <td [appState]="item.state"> 
+                <select (change)="onChangeEditState(item, $event)">
+                    <option *ngFor="let state of stateClient | keyvalue" 
+                        [value]="state.key"
+                        [selected]="state.key === item.state"
+                        >{{ state.value }}</option>
+                </select>
+            </td>
+        </tr>
+    </app-table-light>
+    <app-btn label="Add client" route="add"></app-btn>
+</app-template-full-width>

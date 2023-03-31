@@ -1,0 +1,35 @@
+<header class="fixed-top">
+    <ng-content select=".tr-header"></ng-content>
+    
+    <span (click)="toggle()">
+        <ng-container *ngIf="open;then firstBlock else otherBlock"></ng-container>
+        
+        <ng-template #firstBlock>
+            <ng-content select=".tr-button-close"></ng-content>
+        </ng-template>
+
+        <ng-template #otherBlock>
+            <ng-content select=".tr-button-nav"></ng-content>
+        </ng-template>
+    </span>
+</header>
+<!-- ajouter ou enlever la class close-aside -->
+<main [ngClass]="{'close-aside' : !open}">
+
+    <div class="shadow position-fixed">
+    </div>
+    <aside>
+        <div class="scroller">
+            <ng-content select=".tr-nav"></ng-content>
+        </div>
+    </aside>
+    <div class="page">
+        <div class="contents">
+            <ng-content select=".tr-content"></ng-content>
+        </div>
+        <footer>
+            Footer
+            <ng-content select=".tr-footer"></ng-content>
+        </footer>
+    </div>
+</main>
